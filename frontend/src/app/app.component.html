@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>QSAR Solver</h1>
+    <span class="menu-spacer"></span>
+    <div *ngIf="isLogged; then authBlock else noAuthBlock"></div>
+    <ng-template #authBlock>
+      <a mat-button [routerLink]="'/home'"> Home </a>
+      <a mat-button (click)="logout()">Logout</a>
+    </ng-template>
+    <ng-template #noAuthBlock>
+      <a mat-button [routerLink]="'/register'"> Create Account </a>
+      <a mat-button [routerLink]="'/login'"> Login </a>
+      <a mat-button [routerLink]="'/home'"> Home </a>
+    </ng-template>
+    <div *ngIf="isLeader">
+      <a mat-button [routerLink]="'/users'"> User management </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

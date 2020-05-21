@@ -1,0 +1,25 @@
+POST http://localhost:8000/api/auth/org_request/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Basic emulebest test1234
+
+{
+  "org": "FarmaX"
+}
+####
+GET http://localhost:8000/api/auth/org_request/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Basic farma_admin test1234
+
+{
+  "org": "FarmaX"
+}
+####
+PUT http://localhost:8000/api/auth/org_request/1/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Basic farma_admin test1234

@@ -1,0 +1,24 @@
+POST http://localhost:8000/api/auth/users/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "username": "emulebest",
+  "password": "test1234",
+  "first_name": "Igor",
+  "last_name": "Korotach"
+}
+
+####
+POST http://localhost:8000/api/auth/users/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "username": "farma_admin",
+  "password": "test1234",
+  "first_name": "I",
+  "last_name": "K"
+}

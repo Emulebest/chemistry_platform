@@ -1,0 +1,6 @@
+<mat-selection-list #requests_template_var [(ngModel)]="requests_selected">
+  <mat-list-option *ngFor="let req of requests" [value]="req.id">
+    {{req.user.first_name }} - {{req.user.last_name}}
+  </mat-list-option>
+</mat-selection-list>
+<button mat-button color="primary" (click)="sendAcceptance()">Allow</button>
