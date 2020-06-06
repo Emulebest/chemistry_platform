@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {forkJoin} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {AcceptRequestResponse} from './user-management.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +35,7 @@ export class DbService {
   }
 
   changeVisibility(dbs: number[], visibility: string) {
-    const results = dbs.map(id => this.httpClient.patch<AcceptRequestResponse>(`${environment.app_url}/dbs/manager/${id}/`, {
+    const results = dbs.map(id => this.httpClient.patch(`${environment.app_url}/dbs/manager/${id}/`, {
       visibility: visibility
     }))
     return forkJoin(results)

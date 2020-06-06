@@ -9,6 +9,7 @@ import {AuthService} from './services/auth.service';
 export class AppComponent implements OnInit {
   isLogged: boolean
   isLeader: boolean
+  companyType: string
 
   title = 'frontend';
 
@@ -22,10 +23,12 @@ export class AppComponent implements OnInit {
       this.isLogged = true
       if (authInfo.organization?.leader === authInfo.id) {
         this.isLeader = true
+        this.companyType = authInfo.organization.company_type
       }
     }
     this.auth.isLoggedSubject.subscribe(val => this.isLogged = val)
     this.auth.isLeader.subscribe(val => this.isLeader = val)
+    this.auth.partOfOrg.subscribe(val => this.companyType = val)
   }
 
   logout() {

@@ -12,7 +12,7 @@ import {UserManagementService} from './user-management.service';
 })
 export class AuthService {
   user: User;
-  partOfOrg: Subject<boolean> = new Subject<boolean>();
+  partOfOrg: Subject<string> = new Subject<string>();
   isLoggedSubject = new Subject<boolean>()
   isLeader = new Subject<boolean>()
 
@@ -42,7 +42,7 @@ export class AuthService {
   removeAuth() {
     localStorage.removeItem("userInfo")
     this.user = undefined
-    this.partOfOrg.next(false)
+    this.partOfOrg.next("")
     this.isLoggedSubject.next(false)
     this.isLeader.next(false)
   }
@@ -62,8 +62,7 @@ export class AuthService {
           if (user.organization?.name) {
             const old_user = this.getAuth()
             this.setAuth({...user, password: old_user.password})
-            console.log('Approved');
-            this.partOfOrg.next(true);
+            this.partOfOrg.next(user.organization.company_type ?? "");
           }
         })
       );

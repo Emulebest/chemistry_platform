@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
     if (this.auth.user?.organization?.name) {
       this.partOfOrg = true
     }
-    this.auth.partOfOrg.subscribe(val => this.partOfOrg = val)
+    this.auth.partOfOrg.subscribe(val => {
+      this.partOfOrg = val !== ""
+    })
   }
 
 }

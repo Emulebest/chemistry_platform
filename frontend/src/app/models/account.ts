@@ -18,6 +18,8 @@ export interface User extends AccountInfo {
   id: number,
   organization?: {
     name: string,
-    leader: number
+    leader: number,
+    company_type: string,
+    email: string
   }
 }

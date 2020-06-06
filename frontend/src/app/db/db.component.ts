@@ -21,7 +21,7 @@ export class DbComponent implements OnInit {
     org: [''],
     file: [null]
   });
-  private isLeader: boolean;
+  isLeader: boolean;
 
   async onSubmit() {
     const user = this.authService.getAuth();
@@ -49,7 +49,9 @@ export class DbComponent implements OnInit {
     if (this.authService.user?.organization?.name) {
       this.partOfOrg = true;
     }
-    this.authService.partOfOrg.subscribe(val => this.partOfOrg = val);
+    this.authService.partOfOrg.subscribe(val => {
+      this.partOfOrg = val !== ""
+    });
     const authInfo = this.authService.getAuth()
     if (authInfo !== null) {
       if (authInfo.organization?.leader === authInfo.id) {

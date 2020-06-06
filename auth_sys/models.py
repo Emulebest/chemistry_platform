@@ -1,11 +1,19 @@
-from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 
 
 class Organization(models.Model):
+    class CompanyTypes(models.TextChoices):
+        THEORETICAL = "theoretical"
+        EXPERIMENTAL = "experimental"
+
     name = models.fields.CharField(unique=True, max_length=128)
     leader = models.ForeignKey('User', null=True, blank=True, on_delete=models.CASCADE, related_name='org_backref')
+    company_type = models.CharField(choices=CompanyTypes.choices, max_length=128, default=CompanyTypes.THEORETICAL)
+    email = models.EmailField(null=True)
+
+    def __str__(self):
+        return 'Company: ' + self.name
 
 
 class JoinOrgRequest(models.Model):
