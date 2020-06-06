@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from auth_sys.models import Organization
@@ -11,6 +10,6 @@ class QsarDb(models.Model):
         PRIVATE = "private"
 
     name = models.TextField()
-    data = JSONField()
-    org = models.ForeignKey(Organization, on_delete=models.CASCADE)
-    visibility = models.CharField(choices=Visibility.choices, default=Visibility.PRIVATE, max_length=150)
+    file = models.FileField(upload_to="uploads/", null=True)
+    org = models.CharField(max_length=150)
+    visibility = models.CharField(choices=Visibility.choices, default=Visibility.PUBLIC, max_length=150)

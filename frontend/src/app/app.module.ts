@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import { UserManagerComponent } from './user-manager/user-manager.component';
+import { DbComponent } from './db/db.component';
+import { DbManagerComponent } from './db-manager/db-manager.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
     AuthComponent,
     HomeComponent,
     LoginComponent,
-    UserManagerComponent
+    UserManagerComponent,
+    DbComponent,
+    DbManagerComponent
   ],
   imports: [
     BrowserModule,

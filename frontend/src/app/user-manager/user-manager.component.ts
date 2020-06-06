@@ -18,7 +18,6 @@ export class UserManagerComponent implements OnInit {
   }
 
   sendAcceptance() {
-    console.log(this.requests_selected)
     this.manager.sendAcceptRequests(this.requests_selected).subscribe(res => {
       this.requests = this.requests.filter(req => !res.includes(req.id))
       this.requests_selected = []

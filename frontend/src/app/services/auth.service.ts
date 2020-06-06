@@ -60,6 +60,8 @@ export class AuthService {
       return this.httpClient.get<User>(`${environment.app_url}/auth/users/${this.user.id}/`).pipe(
         tap(user => {
           if (user.organization?.name) {
+            const old_user = this.getAuth()
+            this.setAuth({...user, password: old_user.password})
             console.log('Approved');
             this.partOfOrg.next(true);
           }
