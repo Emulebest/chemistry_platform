@@ -7,4 +7,12 @@ services:
     environment:
       POSTGRES_PASSWORD: 123
     ports:
-    - "5432:5432"
+      - "5432:5432"
+
+  web:
+    image: python
+    working_dir: /code
+    volumes:
+    - "./:/code"
+    ports:
+    -

@@ -60,7 +60,7 @@ class BinaryFeatureSelectionAntColony:
                     continue
                 # TODO: what to do with negative scores?
                 self.pheromone[chosen][i] = (1 - self.decay) * self.pheromone[chosen][i] + (
-                        score / count ** self.count_weight) * self.score_weight
+                        abs(score) / count ** self.count_weight) * self.score_weight
                 self.times_taken[chosen][i] += 1
 
     def gen_all_paths(self) -> List[Tuple[List[Tuple[int, int]], float]]:

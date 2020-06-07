@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 
-from .ant_colony import BinaryFeatureSelectionAntColony
+from qsar.aco.ant_colony import BinaryFeatureSelectionAntColony
 
 
 class MyTestCase(unittest.TestCase):
