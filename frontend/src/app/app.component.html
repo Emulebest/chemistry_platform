@@ -4,7 +4,7 @@
     <span class="menu-spacer"></span>
     <div *ngIf="isLogged; then authBlock else noAuthBlock"></div>
     <ng-template #authBlock>
-      <a mat-button *ngIf="companyType === 'theoretical'" [routerLink]="'/dbs'"> Dbs </a>
+      <a mat-button *ngIf="companyType === 'theoretical'" [routerLink]="'/dbs'"> Qsar Databases </a>
       <a mat-button *ngIf="companyType === 'theoretical'" [routerLink]="'/qsar'"> Qsar </a>
       <a mat-button [routerLink]="'/assignments'"> Assignments </a>
       <a mat-button (click)="logout()">Logout</a>
@@ -15,7 +15,7 @@
     </ng-template>
     <div *ngIf="isLeader && companyType === 'theoretical'">
       <a mat-button [routerLink]="'/users'"> User management </a>
-      <a mat-button [routerLink]="'/db_manager'"> Db management </a>
+      <a mat-button [routerLink]="'/db_manager'"> Database management </a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

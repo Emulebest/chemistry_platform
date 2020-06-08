@@ -1,11 +1,18 @@
-<div class="divElement">
+<div class="divElementDb">
   <div *ngIf="partOfOrg; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
     <div *ngIf="isLeader">
       <mat-selection-list [multiple]="false" [(ngModel)]="dbSelected" (ngModelChange)="onNgModelChange($event)">
         <mat-list-option *ngFor="let db of dbs" [value]="db.id">
-          {{db.name}} {{db.org}} <a href="{{db.file}}">Download</a>
+          <mat-card>
+            <div>{{db.name}}</div>
+            <div>{{db.org}}</div>
+            <div>
+              <a href="{{db.file}}">Download</a>
+            </div>
+          </mat-card>
         </mat-list-option>
+        <br/>
       </mat-selection-list>
 
       <div *ngIf="success">
@@ -20,7 +27,7 @@
             <mat-label>Filename</mat-label>
             <input matInput formControlName="name" placeholder="test.csv">
           </mat-form-field>
-          <h4>Basic native select</h4>
+          <h4>Select visibility</h4>
           <mat-form-field>
             <mat-label>Visibility</mat-label>
             <select formControlName="visibility" matNativeControl required>
@@ -29,7 +36,7 @@
             </select>
           </mat-form-field>
           <div>
-            <button type="submit">Upload</button>
+            <button mat-stroked-button color="primary">Upload</button>
           </div>
         </form>
       </div>

@@ -27,7 +27,7 @@ export class QsarService {
   }
 
   sendAssignments(org_ids: number[], task_id: number) {
-    const results = org_ids.map(id => this.httpClient.post(`${environment.app_url}/qsar/assignments/`, {
+    const results = org_ids.map(id => this.httpClient.post(`${environment.app_url}/qsar/assignments/create/`, {
       assigned_org: id,
       task: task_id
     }))

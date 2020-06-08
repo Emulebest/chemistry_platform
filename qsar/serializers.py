@@ -10,7 +10,13 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class AssignmentSerializer(serializers.ModelSerializer):
+class AssignmentWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Assignment
+        fields = '__all__'
+
+
+class AssignmentReadSerializer(serializers.ModelSerializer):
     task = TaskSerializer(read_only=True)
     assigned_org = OrganizationSerializer(read_only=True)
 

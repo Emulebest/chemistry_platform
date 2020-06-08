@@ -1,13 +1,13 @@
 from django.db.models import Q
 from django.http import JsonResponse
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 
 from auth_sys.models import Organization
 from auth_sys.serializers import OrganizationSerializer
 from qsar.models import Task, Assignment
 from qsar.run_aco import run
-from qsar.serializers import TaskSerializer, AssignmentSerializer
+from qsar.serializers import TaskSerializer, AssignmentReadSerializer, AssignmentWriteSerializer
 from qsar_db.models import QsarDb
 
 
@@ -44,8 +44,12 @@ class ExperimentalOrgsView(ListAPIView):
         return Organization.objects.filter(company_type=Organization.CompanyTypes.EXPERIMENTAL)
 
 
-class AssignmentListCreateView(ListCreateAPIView):
-    serializer_class = AssignmentSerializer
+class AssignmentCreateView(CreateAPIView):
+    serializer_class = AssignmentWriteSerializer
+
+
+class AssignmentListView(ListAPIView):
+    serializer_class = AssignmentReadSerializer
 
     def get_queryset(self):
         user = self.request.user

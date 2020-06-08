@@ -1,23 +1,26 @@
-<div class="divElement">
-  <mat-card *ngIf="!dbSelected">Please select a Db on Dbs page</mat-card>
+<div class="divElementDb">
+  <mat-card *ngIf="!dbSelected">Please select a Database on 'Qsar Databases' page</mat-card>
   <form class="example-form" [formGroup]="qsarForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
       <mat-label>Search field name</mat-label>
       <input matInput formControlName="y_field" placeholder="john123">
     </mat-form-field>
+    <br/>
 
     <mat-form-field class="example-full-width">
       <mat-label>Number of ants</mat-label>
       <input matInput type="number" formControlName="ant_number" placeholder="Test123"/>
     </mat-form-field>
+    <br/>
 
     <mat-form-field class="example-full-width">
       <mat-label>Number of iterations</mat-label>
       <input matInput type="number" formControlName="iterations" placeholder="Test123"/>
     </mat-form-field>
-
-    <input type="submit" mat-raised-button [disabled]="!dbSelected" color="primary" value="Submit"/>
+    <br/>
+    <button mat-stroked-button color="primary" [disabled]="!dbSelected">Submit</button>
   </form>
+  <br/>
 
   <img *ngIf="formula !== ''" src="http://latex.codecogs.com/gif.latex?{{formula}}" border="0"/>
   <div *ngIf="formula !== ''">
