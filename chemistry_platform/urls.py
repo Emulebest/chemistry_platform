@@ -20,7 +20,8 @@ from django.urls import path, include
 
 api_urls = [
     path('auth/', include('auth_sys.urls')),
-    path('dbs/', include('qsar_db.urls'))
+    path('dbs/', include('qsar_db.urls')),
+    path('qsar/', include('qsar.urls')),
 ]
 
 urlpatterns = [

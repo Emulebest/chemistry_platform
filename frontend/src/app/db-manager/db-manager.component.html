@@ -1,7 +1,11 @@
-<mat-selection-list [(ngModel)]="dbSelected">
-  <mat-list-option *ngFor="let db of dbs" [value]="db.id">
-    {{db.name}} {{db.org}} {{db.visibility}} <a href="{{db.file}}">Download</a>
-  </mat-list-option>
-</mat-selection-list>
-<button mat-stroked-button color="primary" (click)="makePublic()">Make public</button>
-<button mat-stroked-button color="warn" (click)="makePrivate()">Make private</button>
+<div class="divElement">
+  <mat-selection-list [(ngModel)]="dbSelected">
+    <mat-list-option *ngFor="let db of dbs" [value]="db.id">
+      {{db.name}} {{db.org}} {{db.visibility}} <a href="{{db.file}}">Download</a>
+    </mat-list-option>
+  </mat-selection-list>
+  <div>
+    <button mat-stroked-button color="primary" (click)="makePublic()">Make public</button>
+    <button mat-stroked-button color="warn" (click)="makePrivate()">Make private</button>
+  </div>
+</div>

@@ -4,8 +4,9 @@
     <span class="menu-spacer"></span>
     <div *ngIf="isLogged; then authBlock else noAuthBlock"></div>
     <ng-template #authBlock>
-      <a mat-button [routerLink]="'/home'"> Home </a>
       <a mat-button *ngIf="companyType === 'theoretical'" [routerLink]="'/dbs'"> Dbs </a>
+      <a mat-button *ngIf="companyType === 'theoretical'" [routerLink]="'/qsar'"> Qsar </a>
+      <a mat-button [routerLink]="'/assignments'"> Assignments </a>
       <a mat-button (click)="logout()">Logout</a>
     </ng-template>
     <ng-template #noAuthBlock>

@@ -8,7 +8,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Organization
-        fields = ['name', 'leader', 'email', 'company_type']
+        fields = ['name', 'leader', 'email', 'company_type', 'id']
 
 
 class UserSerializer(serializers.ModelSerializer):

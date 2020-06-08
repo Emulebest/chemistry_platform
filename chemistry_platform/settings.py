@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'auth_sys',
-    'qsar_db'
+    'qsar_db',
+    'qsar'
 ]
 
 MIDDLEWARE = [

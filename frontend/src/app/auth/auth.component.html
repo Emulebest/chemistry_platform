@@ -1,28 +1,30 @@
-<form class="example-form" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
-  <mat-form-field class="example-full-width">
-    <mat-label>Username</mat-label>
-    <input matInput formControlName="username" placeholder="john123">
-  </mat-form-field>
+<div class="divElement">
+  <form class="example-form" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="john123">
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" placeholder="Test123"/>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" placeholder="Test123"/>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>First name</mat-label>
-    <input matInput formControlName="first_name" placeholder="John"/>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="first_name" placeholder="John"/>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Last name</mat-label>
-    <input matInput formControlName="last_name" placeholder="Johnson"/>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="last_name" placeholder="Johnson"/>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Organization name</mat-label>
-    <input matInput formControlName="org" placeholder="FarmaX"/>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Organization name</mat-label>
+      <input matInput formControlName="org" placeholder="FarmaX"/>
+    </mat-form-field>
 
-  <input type="submit" mat-raised-button color="primary" value="Submit"/>
-</form>
+    <input type="submit" mat-raised-button color="primary" value="Submit"/>
+  </form>
+</div>
